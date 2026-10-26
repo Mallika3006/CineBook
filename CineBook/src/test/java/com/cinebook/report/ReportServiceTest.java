@@ -61,6 +61,8 @@ class ReportServiceTest {
 
         assertThat(csv).startsWith("Movie ID,Movie Title,Genre,Language,Total Showtimes,Confirmed Bookings,Cancelled Bookings,Tickets Sold,Confirmed Booking Value (INR)");
         assertThat(csv).contains("1,Chronos Protocol,Sci-Fi,English,14,8,1,22,8450.00");
-        assertThat(csv).contains("2,"Kaalacakra, Part I",Action,Kannada,10,5,0,12,4200.00");
+        assertThat(csv).contains(
+                "2,\"Kaalacakra, Part I\",Action,Kannada,10,5,0,12,4200.00"
+        );
     }
 }

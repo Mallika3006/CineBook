@@ -105,7 +105,9 @@ class BookingConcurrencyIntegrationTest {
             for (BookingSeat bs : seats) {
                 String uniqueKey = stId + ":" + bs.getSeatId();
                 if (!activeSeatClaimsIndex.add(uniqueKey)) {
-                    throw new DuplicateKeyException("ERROR: duplicate key value violates unique constraint "uq_booking_seats_active_claim"");
+                    throw new DuplicateKeyException(
+                            "ERROR: duplicate key value violates unique constraint \"uq_booking_seats_active_claim\""
+                    );
                 }
             }
             return null;
