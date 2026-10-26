@@ -1,0 +1,22 @@
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Build outputs
+target/
+*.class
+*.log
+logs/
+
+# IDE and OS files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
