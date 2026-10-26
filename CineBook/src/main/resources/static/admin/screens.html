@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screens & Seat Layout Management — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <h1 style="font-size:1.75rem; margin-bottom:1.25rem;">Screens &amp; Physical Seat Layouts</h1>
+            <div id="screen-form-error" class="alert alert-error hidden"></div>
+
+            <div style="display:grid; grid-template-columns: 360px 1fr; gap:1.5rem; align-items:start;">
+                <form id="admin-screen-form" class="card">
+                    <h3 style="margin-bottom:1rem;">Create Screen &amp; Seat Map</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="screen-theatre-select">Theatre *</label>
+                        <select id="screen-theatre-select" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="screen-name">Screen Name *</label>
+                        <input type="text" id="screen-name" class="form-control" placeholder="Audi 3 — Dolby Atmos" required />
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="regular-rows">Regular Rows</label>
+                            <input type="number" id="regular-rows" class="form-control" min="1" max="10" value="3" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="premium-rows">Premium Rows</label>
+                            <input type="number" id="premium-rows" class="form-control" min="0" max="10" value="3" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="recliner-rows">Recliner Rows</label>
+                            <input type="number" id="recliner-rows" class="form-control" min="0" max="6" value="2" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="seats-per-row">Seats / Row</label>
+                            <input type="number" id="seats-per-row" class="form-control" min="4" max="20" value="10" required />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Screen &amp; Generate Seats</button>
+                </form>
+
+                <div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Theatre</th>
+                                    <th>Screen Name</th>
+                                    <th>Capacity</th>
+                                    <th>Status</th>
+                                    <th>Seat Map</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-screens-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div id="admin-seat-preview" class="card hidden" style="margin-top:1.25rem;"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminScreensPage } from '/js/admin.js';
+        initAdminScreensPage();
+    </script>
+</body>
+</html>

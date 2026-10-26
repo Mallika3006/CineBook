@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard Overview — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.75rem;">Executive Overview</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Real-time metrics derived directly from PostgreSQL</p>
+                </div>
+                <div style="display:flex; gap:0.6rem;">
+                    <a href="/admin/movie-form.html" class="btn btn-primary btn-sm">+ Add Movie</a>
+                    <a href="/admin/showtimes.html" class="btn btn-secondary btn-sm">Schedule Showtime</a>
+                </div>
+            </div>
+
+            <div id="admin-kpi-grid" class="kpi-grid"></div>
+
+            <div style="display:grid; grid-template-columns: 1.35fr 0.65fr; gap:1.5rem; align-items:start;">
+                <section>
+                    <h2 style="font-size:1.2rem; margin-bottom:0.85rem;">Recent Customer Bookings</h2>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>Customer</th>
+                                    <th>Movie</th>
+                                    <th>Venue</th>
+                                    <th>Seats</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-recent-bookings-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 style="font-size:1.2rem; margin-bottom:0.85rem;">Top Performing Movies</h2>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Movie</th>
+                                    <th>Info</th>
+                                    <th>Shows</th>
+                                    <th>Tickets</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-top-movies-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminDashboardPage } from '/js/admin.js';
+        initAdminDashboardPage();
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cinebook-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-cinebook}
+      POSTGRES_USER: ${DB_USERNAME:-cinebook_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      TZ: Asia/Kolkata
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - cinebook_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-cinebook_user} -d ${DB_NAME:-cinebook}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cinebook-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8080
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-cinebook}
+      DB_USERNAME: ${DB_USERNAME:-cinebook_user}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-86400000}
+      JWT_COOKIE_SECURE: ${JWT_COOKIE_SECURE:-false}
+      CINEBOOK_ADMIN_BOOTSTRAP_ENABLED: ${CINEBOOK_ADMIN_BOOTSTRAP_ENABLED:-true}
+      CINEBOOK_ADMIN_NAME: ${CINEBOOK_ADMIN_NAME:-CineBook System Admin}
+      CINEBOOK_ADMIN_EMAIL: ${CINEBOOK_ADMIN_EMAIL:-admin@cinebook.local}
+      CINEBOOK_ADMIN_PASSWORD: ${CINEBOOK_ADMIN_PASSWORD:?Set CINEBOOK_ADMIN_PASSWORD in .env}
+      CINEBOOK_DEMO_CUSTOMER_ENABLED: ${CINEBOOK_DEMO_CUSTOMER_ENABLED:-true}
+      CINEBOOK_DEMO_CUSTOMER_NAME: ${CINEBOOK_DEMO_CUSTOMER_NAME:-Aarav Sharma}
+      CINEBOOK_DEMO_CUSTOMER_EMAIL: ${CINEBOOK_DEMO_CUSTOMER_EMAIL:-customer@cinebook.local}
+      CINEBOOK_DEMO_CUSTOMER_PASSWORD: ${CINEBOOK_DEMO_CUSTOMER_PASSWORD:-}
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+
+volumes:
+  cinebook_pgdata:

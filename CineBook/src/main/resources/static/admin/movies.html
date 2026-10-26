@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Catalog Management — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.75rem;">Movies Management</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Create, edit, activate/deactivate, or safely remove unreferenced movies</p>
+                </div>
+                <a href="/admin/movie-form.html" class="btn btn-primary btn-sm">+ Add New Movie</a>
+            </div>
+
+            <div class="filter-bar">
+                <input type="search" id="admin-movie-search" class="form-control" placeholder="Filter movies by title..." style="max-width:360px;" />
+            </div>
+
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Movie</th>
+                            <th>Genre</th>
+                            <th>Language</th>
+                            <th>Duration</th>
+                            <th>Release Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-movies-tbody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminMoviesPage } from '/js/admin.js';
+        initAdminMoviesPage();
+    </script>
+</body>
+</html>

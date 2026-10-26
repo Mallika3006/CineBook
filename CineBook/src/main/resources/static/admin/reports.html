@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Reports & CSV Export — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.75rem;">SQL Analytics &amp; Financial Reports</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Aggregated revenue by date, movie performance, and showtime seat occupancy</p>
+                </div>
+                <button type="button" id="export-csv-btn" class="btn btn-primary btn-sm">Download Movie Performance CSV ↓</button>
+            </div>
+
+            <section style="margin-bottom:2rem;">
+                <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">1. Performance &amp; Revenue by Movie</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Movie Title</th>
+                                <th>Genre</th>
+                                <th>Language</th>
+                                <th>Scheduled Shows</th>
+                                <th>Confirmed Bookings</th>
+                                <th>Cancelled Bookings</th>
+                                <th>Tickets Sold</th>
+                                <th>Confirmed Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-movie-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section style="margin-bottom:2rem;">
+                <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">2. Daily Booking &amp; Revenue Breakdown</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking Date</th>
+                                <th>Total Bookings</th>
+                                <th>Confirmed</th>
+                                <th>Cancelled</th>
+                                <th>Tickets Sold</th>
+                                <th>Tickets Subtotal</th>
+                                <th>Convenience + GST</th>
+                                <th>Total Confirmed Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-revenue-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">3. Showtime Occupancy vs. Screen Capacity</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Movie</th>
+                                <th>Theatre &amp; Screen</th>
+                                <th>Showtime</th>
+                                <th>Sold / Capacity</th>
+                                <th>Available</th>
+                                <th>Occupancy %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-occupancy-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminReportsPage } from '/js/admin.js';
+        initAdminReportsPage();
+    </script>
+</body>
+</html>

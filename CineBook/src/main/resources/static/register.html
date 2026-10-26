@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container">
+            <div class="auth-wrapper card">
+                <div style="text-align:center; margin-bottom:1.5rem;">
+                    <span class="brand-logo-mark" style="margin-bottom:0.75rem;">CB</span>
+                    <h1 style="font-size:1.55rem;">Create Your CineBook Account</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Book tickets in seconds and manage all your shows in one place</p>
+                </div>
+
+                <div id="register-error" class="alert alert-error hidden" role="alert"></div>
+
+                <form id="register-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Aarav Sharma" required autocomplete="name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="aarav@example.com" required autocomplete="email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Min 8 chars, 1 uppercase, 1 lowercase, 1 digit" required autocomplete="new-password" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter your password" required autocomplete="new-password" />
+                    </div>
+                    <button type="submit" id="register-submit-btn" class="btn btn-primary btn-block btn-lg" style="margin-top:0.5rem;">
+                        Create Account
+                    </button>
+                </form>
+
+                <div style="text-align:center; margin-top:1.25rem; font-size:0.9rem; color:var(--cb-text-secondary);">
+                    Already have an account? <a href="/login.html" style="color:var(--cb-accent); font-weight:700;">Log in here</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initRegisterPage } from '/js/auth.js';
+        initRegisterPage();
+    </script>
+</body>
+</html>

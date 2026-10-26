@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showtimes Scheduling — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <h1 style="font-size:1.75rem; margin-bottom:1.25rem;">Showtime Scheduling &amp; Overlap Control</h1>
+            <div id="showtime-form-error" class="alert alert-error hidden"></div>
+
+            <div style="display:grid; grid-template-columns: 380px 1fr; gap:1.5rem; align-items:start;">
+                <form id="admin-showtime-form" class="card">
+                    <h3 style="margin-bottom:1rem;">Schedule New Showtime</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="st-movie-select">Active Movie *</label>
+                        <select id="st-movie-select" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="st-screen-select">Theatre &amp; Screen *</label>
+                        <select id="st-screen-select" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="st-start-time">Start Date &amp; Time (IST) *</label>
+                        <input type="datetime-local" id="st-start-time" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="st-format">Presentation Format *</label>
+                        <select id="st-format" class="form-control">
+                            <option value="2D">2D</option>
+                            <option value="3D">3D</option>
+                            <option value="IMAX 2D">IMAX 2D</option>
+                            <option value="IMAX 3D">IMAX 3D</option>
+                            <option value="DOLBY ATMOS">DOLBY ATMOS</option>
+                        </select>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0.5rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="st-regular-price">Regular (₹)</label>
+                            <input type="number" id="st-regular-price" class="form-control" value="220" min="50" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="st-premium-price">Premium (₹)</label>
+                            <input type="number" id="st-premium-price" class="form-control" value="320" min="50" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="st-recliner-price">Recliner (₹)</label>
+                            <input type="number" id="st-recliner-price" class="form-control" value="460" min="50" required />
+                        </div>
+                    </div>
+                    <p class="text-muted" style="font-size:0.78rem; margin-bottom:1rem;">
+                        End time is calculated automatically on the server using movie duration + 25 min turnaround buffer. Overlapping shows on the same screen are rejected atomically.
+                    </p>
+                    <button type="submit" class="btn btn-primary btn-block">Schedule Showtime</button>
+                </form>
+
+                <div>
+                    <div class="filter-bar">
+                        <label for="st-filter-date" class="form-label" style="margin:0;">Filter by Date:</label>
+                        <input type="date" id="st-filter-date" class="form-control" style="max-width:200px;" />
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Movie</th>
+                                    <th>Venue &amp; Screen</th>
+                                    <th>Start Time</th>
+                                    <th>Calculated End</th>
+                                    <th>Tier Prices</th>
+                                    <th>Sold</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-showtimes-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminShowtimesPage } from '/js/admin.js';
+        initAdminShowtimesPage();
+    </script>
+</body>
+</html>

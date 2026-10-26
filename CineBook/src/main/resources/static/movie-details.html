@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details & Showtimes — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <section id="movie-details-hero" class="movie-hero">
+            <div class="container"><p style="color:#CBD5E1;">Loading movie details...</p></div>
+        </section>
+
+        <div class="container" style="padding-top:2rem;">
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+                <div>
+                    <h2 style="font-size:1.45rem;">Select Date &amp; Showtime</h2>
+                    <p class="text-secondary" style="font-size:0.88rem;">Click any available showtime button to launch interactive seat selection</p>
+                </div>
+                <div id="movie-date-strip" class="date-strip"></div>
+            </div>
+
+            <div id="movie-theatres-container"></div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initMovieDetailsPage } from '/js/movies.js';
+        initMovieDetailsPage();
+    </script>
+</body>
+</html>

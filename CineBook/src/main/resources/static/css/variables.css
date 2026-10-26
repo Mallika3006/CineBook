@@ -1,0 +1,79 @@
+/* ============================================================================
+   CineBook Design System — CSS Custom Properties
+   Palette: Deep Cinema Navy, Restrained Coral/Crimson Accent, Crisp Light Surfaces
+   ============================================================================ */
+:root {
+    /* Brand & Accent Colors */
+    --cb-navy-950: #060A12;
+    --cb-navy-900: #0B1120;
+    --cb-navy-800: #111827;
+    --cb-navy-700: #1E293B;
+    --cb-navy-600: #334155;
+
+    --cb-accent: #E50914;
+    --cb-accent-hover: #C80710;
+    --cb-accent-coral: #FF385C;
+    --cb-accent-soft: rgba(229, 9, 20, 0.10);
+
+    /* Light Content Surfaces */
+    --cb-bg: #F4F6FB;
+    --cb-surface: #FFFFFF;
+    --cb-surface-alt: #F8FAFC;
+    --cb-border: #E2E8F0;
+    --cb-border-strong: #CBD5E1;
+
+    /* Text Hierarchy */
+    --cb-text-primary: #0F172A;
+    --cb-text-secondary: #475569;
+    --cb-text-muted: #64748B;
+    --cb-text-inverse: #F8FAFC;
+
+    /* Semantic & Seat States */
+    --cb-success: #059669;
+    --cb-success-bg: #ECFDF5;
+    --cb-warning: #D97706;
+    --cb-warning-bg: #FFFBEB;
+    --cb-danger: #DC2626;
+    --cb-danger-bg: #FEF2F2;
+    --cb-info: #2563EB;
+    --cb-info-bg: #EFF6FF;
+
+    /* Seat Layout Colors */
+    --seat-available-border: #10B981;
+    --seat-available-bg: #FFFFFF;
+    --seat-available-text: #065F46;
+    --seat-selected-bg: #E50914;
+    --seat-selected-border: #B91C1C;
+    --seat-selected-text: #FFFFFF;
+    --seat-booked-bg: #E2E8F0;
+    --seat-booked-border: #CBD5E1;
+    --seat-booked-text: #94A3B8;
+    --seat-held-bg: #FEF3C7;
+    --seat-held-border: #F59E0B;
+    --seat-held-text: #B45309;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+    /* Spacing & Layout */
+    --container-max: 1280px;
+    --nav-height: 70px;
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 9999px;
+
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.07);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.09);
+    --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.14);
+    --shadow-accent: 0 6px 20px rgba(229, 9, 20, 0.28);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookings & Tickets — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container" style="padding-top:2rem;">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.8rem;">My Bookings</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Manage your upcoming tickets, view QR codes, or cancel eligible bookings</p>
+                </div>
+                <div style="display:flex; gap:0.5rem;">
+                    <button type="button" class="btn btn-primary btn-sm" data-booking-tab="upcoming">Upcoming</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-booking-tab="past">Past Shows</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-booking-tab="cancelled">Cancelled</button>
+                </div>
+            </div>
+
+            <div id="my-bookings-list"></div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initMyBookingsPage } from '/js/bookings.js';
+        initMyBookingsPage();
+    </script>
+</body>
+</html>

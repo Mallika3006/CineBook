@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theatres & Showtimes — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container" style="padding-top:2rem;">
+            <div class="section-header">
+                <div>
+                    <h1 id="showtimes-city-heading" style="font-size:1.85rem;">Theatres &amp; Showtimes</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Compare screens, formats, and real-time seat availability</p>
+                </div>
+            </div>
+
+            <div class="filter-bar" style="justify-content:space-between;">
+                <div id="showtimes-date-strip" class="date-strip"></div>
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                    <select id="showtimes-format-filter" class="form-control" aria-label="Filter by Format">
+                        <option value="">All Formats</option>
+                        <option value="IMAX 2D">IMAX 2D</option>
+                        <option value="IMAX 3D">IMAX 3D</option>
+                        <option value="DOLBY ATMOS">Dolby Atmos</option>
+                        <option value="3D">3D</option>
+                        <option value="2D">2D</option>
+                    </select>
+                    <select id="showtimes-sort-filter" class="form-control" aria-label="Sort Showtimes">
+                        <option value="time">Sort by Showtime</option>
+                        <option value="priceAsc">Sort by Price: Low to High</option>
+                        <option value="priceDesc">Sort by Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="showtimes-listing-container"></div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initShowtimesPage } from '/js/showtimes.js';
+        initShowtimesPage();
+    </script>
+</body>
+</html>

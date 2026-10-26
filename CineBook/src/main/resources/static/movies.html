@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discover Movies — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container" style="padding-top:2rem;">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.85rem;">Explore Movies</h1>
+                    <p id="discovery-count-label" class="text-secondary" style="font-size:0.92rem;">Loading movie catalog...</p>
+                </div>
+            </div>
+
+            <div class="filter-bar" role="region" aria-label="Movie Filters">
+                <input
+                    type="search"
+                    id="filter-search"
+                    class="form-control"
+                    placeholder="Search by movie title..."
+                    style="flex:1; min-width:210px;"
+                    aria-label="Search by movie title"
+                />
+                <select id="filter-genre" class="form-control" aria-label="Filter by Genre">
+                    <option value="">All Genres</option>
+                </select>
+                <select id="filter-language" class="form-control" aria-label="Filter by Language">
+                    <option value="">All Languages</option>
+                    <option value="English">English</option>
+                    <option value="Kannada">Kannada</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Telugu">Telugu</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Malayalam">Malayalam</option>
+                </select>
+                <select id="filter-status" class="form-control" aria-label="Filter by Release Status">
+                    <option value="">All Statuses</option>
+                    <option value="NOW_SHOWING">Now Showing</option>
+                    <option value="COMING_SOON">Coming Soon</option>
+                </select>
+                <select id="filter-sort" class="form-control" aria-label="Sort Movies">
+                    <option value="popularity">Sort: Popularity</option>
+                    <option value="releaseDate">Sort: Release Date</option>
+                    <option value="title">Sort: Title (A–Z)</option>
+                </select>
+                <button type="button" id="filter-reset-btn" class="btn btn-secondary btn-sm">Reset Filters</button>
+            </div>
+
+            <div id="discovery-movies-grid" class="movie-grid"></div>
+            <div id="discovery-pagination" style="display:flex; justify-content:center; gap:0.5rem; margin-top:2rem;"></div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initMoviesDiscoveryPage } from '/js/movies.js';
+        initMoviesDiscoveryPage();
+    </script>
+</body>
+</html>

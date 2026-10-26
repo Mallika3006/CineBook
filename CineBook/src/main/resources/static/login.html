@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer & Admin Login — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container">
+            <div class="auth-wrapper card">
+                <div style="text-align:center; margin-bottom:1.5rem;">
+                    <span class="brand-logo-mark" style="margin-bottom:0.75rem;">CB</span>
+                    <h1 style="font-size:1.55rem;">Welcome Back to CineBook</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Sign in to reserve seats and access your tickets</p>
+                </div>
+
+                <div id="login-error" class="alert alert-error hidden" role="alert"></div>
+
+                <form id="login-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="you@example.com" required autocomplete="email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required autocomplete="current-password" />
+                    </div>
+                    <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block btn-lg" style="margin-top:0.5rem;">
+                        Sign In to CineBook
+                    </button>
+                </form>
+
+                <div style="text-align:center; margin-top:1.25rem; font-size:0.9rem; color:var(--cb-text-secondary);">
+                    New to CineBook? <a href="/register.html" style="color:var(--cb-accent); font-weight:700;">Create an account</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initLoginPage } from '/js/auth.js';
+        initLoginPage();
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <div class="container">
+            <div class="auth-wrapper card" style="max-width:560px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem;">
+                    <div>
+                        <h1 style="font-size:1.55rem;">Account Profile</h1>
+                        <p class="text-secondary" style="font-size:0.86rem;">Member since <span id="memberSince">—</span></p>
+                    </div>
+                    <span id="roleBadge" class="badge badge-dark">USER</span>
+                </div>
+
+                <div id="profile-error" class="alert alert-error hidden"></div>
+                <div id="profile-success" class="alert alert-success hidden"></div>
+
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address (Read-only)</label>
+                        <input type="email" id="email" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" required />
+                    </div>
+                    <div style="border-top:1px solid var(--cb-border); margin:1.25rem 0; padding-top:1rem;">
+                        <h3 style="font-size:1rem; margin-bottom:0.75rem;">Change Password (Optional)</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" class="form-control" placeholder="Required only if setting a new password" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" class="form-control" placeholder="Min 8 characters" />
+                        </div>
+                    </div>
+                    <button type="submit" id="profile-submit-btn" class="btn btn-primary btn-block">Save Profile Changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initProfilePage } from '/js/auth.js';
+        initProfilePage();
+    </script>
+</body>
+</html>

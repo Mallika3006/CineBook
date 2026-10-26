@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Bookings Management — CineBook Admin</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <div class="admin-shell">
+        <aside id="admin-sidebar" class="admin-sidebar"></aside>
+        <main class="admin-main">
+            <div class="section-header">
+                <div>
+                    <h1 style="font-size:1.75rem;">Bookings Management</h1>
+                    <p class="text-secondary" style="font-size:0.9rem;">Search by booking reference or customer email, inspect seats, or cancel bookings</p>
+                </div>
+            </div>
+
+            <div class="filter-bar">
+                <input type="search" id="admin-booking-ref" class="form-control" placeholder="Search by Booking Ref (e.g. CB-...) or Email..." style="flex:1; max-width:380px;" />
+                <select id="admin-booking-status" class="form-control" style="max-width:200px;">
+                    <option value="">All Statuses</option>
+                    <option value="CONFIRMED">CONFIRMED</option>
+                    <option value="CANCELLED">CANCELLED</option>
+                </select>
+            </div>
+
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Customer</th>
+                            <th>Movie</th>
+                            <th>Venue</th>
+                            <th>Showtime</th>
+                            <th>Seats</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-bookings-tbody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script type="module">
+        import { initAdminBookingsPage } from '/js/admin.js';
+        initAdminBookingsPage();
+    </script>
+</body>
+</html>

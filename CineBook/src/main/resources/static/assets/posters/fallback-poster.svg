@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900">
+  <rect width="600" height="900" fill="#0F172A"/>
+  <rect x="40" y="40" width="520" height="820" rx="16" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="300" cy="380" r="85" fill="#1E293B" stroke="#E50914" stroke-width="3"/>
+  <polygon points="280,340 350,380 280,420" fill="#E50914"/>
+  <text x="300" y="540" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="32" font-weight="800" text-anchor="middle" letter-spacing="2">CINEBOOK</text>
+  <text x="300" y="580" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="16" text-anchor="middle" letter-spacing="3">OFFICIAL FEATURE FILM</text>
+</svg>

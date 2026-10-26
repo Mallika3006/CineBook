@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Movie Tickets, IMAX & Dolby Atmos Showtimes — CineBook</title>
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+</head>
+<body>
+    <header id="site-header"></header>
+    <main>
+        <section id="hero-banner-container" class="hero-banner">
+            <div class="container">
+                <p style="color:#CBD5E1;">Loading featured premiere...</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="section-block">
+                <div class="section-header">
+                    <div>
+                        <h2 style="font-size:1.45rem;">Browse by Genre</h2>
+                        <p class="text-secondary" style="font-size:0.9rem;">Jump straight to your favourite cinema categories</p>
+                    </div>
+                </div>
+                <div id="home-genre-pills" style="display:flex; flex-wrap:wrap; gap:0.55rem;"></div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-header">
+                    <div>
+                        <h2 style="font-size:1.55rem;">Currently Trending</h2>
+                        <p class="text-secondary" style="font-size:0.9rem;">Top box-office picks with high seat demand</p>
+                    </div>
+                    <a href="/movies.html?releaseStatus=NOW_SHOWING&sortBy=popularity" class="btn btn-secondary btn-sm">See All Now Showing →</a>
+                </div>
+                <div id="trending-movies-grid" class="movie-grid">
+                    <div class="skeleton skeleton-card"></div>
+                    <div class="skeleton skeleton-card"></div>
+                    <div class="skeleton skeleton-card"></div>
+                    <div class="skeleton skeleton-card"></div>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-header">
+                    <div>
+                        <h2 style="font-size:1.55rem;">Recommended Movies</h2>
+                        <p class="text-secondary" style="font-size:0.9rem;">Handpicked releases across English, Kannada, Hindi, Tamil, Telugu &amp; Malayalam</p>
+                    </div>
+                    <a href="/movies.html" class="btn btn-secondary btn-sm">Explore Catalog →</a>
+                </div>
+                <div id="recommended-movies-grid" class="movie-grid"></div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-header">
+                    <div>
+                        <h2 style="font-size:1.55rem;">Coming Soon to Theatres</h2>
+                        <p class="text-secondary" style="font-size:0.9rem;">Upcoming blockbusters &amp; special IMAX engagements</p>
+                    </div>
+                    <a href="/movies.html?releaseStatus=COMING_SOON" class="btn btn-secondary btn-sm">View Upcoming →</a>
+                </div>
+                <div id="coming-soon-movies-grid" class="movie-grid"></div>
+            </section>
+        </div>
+    </main>
+    <div id="site-footer"></div>
+    <script type="module">
+        import { initHomePage } from '/js/movies.js';
+        initHomePage();
+    </script>
+</body>
+</html>
